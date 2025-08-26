@@ -1,0 +1,118 @@
+#img_portada{
+    overflow:hidden;
+    object-fit:cover;
+    width:100vw;
+    height:100vh;
+}
+
+.portada{
+    position:relative;
+}
+
+.titulo-portada{
+    position:absolute;
+    top:42%;
+    left: 44%;
+    font-size:6rem;
+    color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.contenido{
+    /* border: 2px solid black; */
+    width:100vw;
+    height:60vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:5vw;
+
+}
+
+.media{
+    /* border: 2px solid blue; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
+    width:40vw;
+    height:50vh;
+}
+
+.img_galeria{
+    width:30vw;
+    object-fit:cover;
+}
+
+.texto{
+    /* border: 2px solid red; */
+    max-width:45vw;
+}
+
+/* Estilo base de la miniatura */
+.thumbnail {
+  width: 200px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius:12px;
+}
+
+/* Contenedor lightbox oculto por defecto */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen dentro del lightbox */
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px white;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+#bg-video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.8; /* opcional: para que no opaque el contenido */
+}
+
+.espacion{
+    overflow:hidden;
+    object-fit:cover;
+    position:relative;
+}
+
+.image-container img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.texto {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.filtro {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.1); /* opcional: desenfoque + oscurecimiento */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}

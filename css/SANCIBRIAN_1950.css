@@ -1,0 +1,237 @@
+/* --- 1. CONFIGURACIÓN GLOBAL Y RESETEO --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0; 
+    background-image: url("../assets/imagen/Fondo\ papel.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #333;
+}
+
+/* --- 2. DISEÑO PRINCIPAL DEL DASHBOARD --- */
+.dashboard {
+    display: flex;
+    flex-direction: column; /* Apila los hijos directos verticalmente (crea las filas) */
+    align-items: center;   /* Centra las filas horizontalmente */
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    gap: 2rem; /* Espacio entre la fila de texto y la de multimedia */
+}
+
+/* --- 3. FILA 1: CONTENIDO DE TEXTO --- */
+.col-center {
+    width: 100%;
+    max-width: 1200px; /* Limita el ancho máximo para legibilidad */
+}
+
+.col-center .texto {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#link_titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #c5B46A;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.col-center .texto h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #4e5844;
+}
+
+.col-center .texto h3 {
+    font-size: 1.4rem;
+    color: #4e5844;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.col-center .texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* --- 4. FILA 2: CONTENEDOR MULTIMEDIA --- */
+#media {
+    display: flex;
+    flex-direction: row; /* Coloca los cuadrados multimedia uno al lado del otro */
+    flex-wrap: wrap;     /* Permite que se apilen en pantallas pequeñas */
+    justify-content: center; /* Centra los cuadrados */
+    gap: 2rem;           /* Espacio entre los cuadrados */
+    width: 100%;
+    max-width: 1200px; /* Alineado con el bloque de texto */
+}
+
+/* --- 5. CUADRADOS MULTIMEDIA (CARRUSELES) --- */
+.col-left, .col-right {
+  display: flex;
+    justify-content: center;
+    flex: 1 1 600px; /* Les permite crecer y encoger, con un tamaño base de 400px */
+    max-width: 800px; /* Evita que sean demasiado anchos en pantallas grandes 550*/
+}
+
+.carousel-container {
+    position: relative;
+    width: 50rem;
+    /* Truco para mantener la relación de aspecto cuadrada (1:1) */
+    aspect-ratio: 16 / 9; 
+    display: flex;
+    flex-direction: column;
+    background-color: #4e5844;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden; /* Asegura que nada se salga del contenedor */
+}
+
+.carousel-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #FEFDF9;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.document-frame {
+    width: 100%; /* El ancho del iframe ocupa todo el contenedor */
+    height: 500px; /* Define una altura fija para que el documento sea visible */
+    border: none; /* Elimina el borde predeterminado del iframe */
+}
+
+/* Opcional: si el contenedor principal tiene un tamaño específico, puedes ajustar el iframe */
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel {
+    position: relative;
+    flex-grow: 1; /* El carrusel ocupa todo el espacio vertical disponible */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.carousel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.carousel img.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carousel-container .prev,
+.carousel-container .next {
+    cursor: pointer;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    /* Opcional: para que la imagen se adapte al contenedor */
+    height: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem; /* Ajusta el tamaño del ícono */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    border-radius: 50%;
+    padding: 20px;
+    z-index: 10;
+    pointer-events: none; /* Crucial para que no bloquee el clic en el video */
+}
+
+.carousel-container .prev:hover,
+.carousel-container .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-container .prev { left: 25px; }
+.carousel-container .next { right: 25px; }
+
+
+/* --- 6. MODO ENFOQUE (OVERLAY) --- */
+/* (Sin cambios, esta sección ya es correcta) */
+.carousel-focus {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 1rem;
+}
+.carousel-focus.active { display: flex; }
+.carousel-focus .focus-content { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+.carousel-focus .focus-content img { display: none; max-width: 90vw; max-height: 85vh; object-fit: contain; }
+.carousel-focus .focus-content img.active { display: block; }
+.carousel-focus .prev, .carousel-focus .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); border: none; color: white; font-size: 2rem; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; z-index: 10000; }
+.carousel-focus .prev { left: 1rem; }
+.carousel-focus .next { right: 1rem; }
+.close-focus { position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; font-size: 2.5rem; color: white; cursor: pointer; z-index: 10001; line-height: 1; }
+
+
+/* --- 7. MEDIA QUERIES PARA RESPONSIVIDAD --- */
+/* Ajustes menores para móviles */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .col-center .texto p {
+        font-size: 1rem;
+    }
+}

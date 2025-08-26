@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HvV - Dashboard</title>
+    <link rel="stylesheet" href="../css/HvV.css"> </head>
+<body>
+
+    <div class="dashboard">
+
+        <section class="col-center">
+            <div class="texto">
+              <div id="link_titulo">
+                <h1>HvV</h1>
+              </div>
+                <div>
+                    <p>El Hospital Virtual Valdecilla es un centro de innovación y entrenamiento de alto rendimiento para profesionales sanitarios. 
+                        Diseñan experiencias de aprendizaje utilizando la <strong>simulación clínica</strong> como herramienta.
+                        Con un <strong>doble click</strong> se reproducirán algunos de los resultados obtenidos más destacados, creados para ser 
+                        reproducidos en conferencias destinadas a presentación de proyectos y comunicación externa.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div id="media">
+            <section class="col-left">
+                <div class="carousel-container">
+                    <h2>CURSO TRAUMA GRAVE</h2>
+                    <div class="carousel">
+                        <img src="../assets/imagen/HvV_TraumaGrave_1-1.png" alt="Imagen de diseño CAD 3">
+                        <video class="active" controls>
+                    <source src="../assets/video/HvV/Curso Trauma Grave.mp4" type="video/mp4">
+                </video>
+                <div class="play-overlay">▶️</div>
+            </section>
+            
+            <section class="col-right">
+                <div class="carousel-container">
+                    <h2>CURSO CARDIOLOGÍA</h2>
+                    <div class="carousel">
+                        <img src="../assets/imagen/HvV_CARDIOLOGIA_1-1.png" alt="Imagen de diseño CAD 3">
+                        <video class="active" controls>
+                    <source src="../assets/video/HvV/Cardiologia INGLES.mp4" type="video/mp4">
+                </video>
+                <div class="play-overlay">▶️</div>
+            </section>
+        </div>
+    </div>
+
+<script src="../assets/js/CryoEbusL2.js"></script>
+
+<div class="carousel-focus" id="carouselFocus" aria-hidden="true">
+  <button class="close-focus" id="closeFocus" aria-label="Cerrar">&times;</button>
+  <div class="focus-content"></div>
+</div>
+
+</body>
+</html>
