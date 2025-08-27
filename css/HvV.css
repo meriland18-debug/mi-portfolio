@@ -232,3 +232,10 @@ html, body {
         font-size: 1rem;
     }
 }
+
+
+.carousel iframe {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción */
+  aspect-ratio: 16 / 9; /* Proporción estándar para video */
+}
